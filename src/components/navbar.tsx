@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { useAccount, useDisconnect, useConnect } from 'wagmi'
-import { Trophy, MessageSquare, LogOut, ChevronDown, Wallet } from 'lucide-react'
+import { Trophy, MessageSquare, LogOut, ChevronDown, Wallet, Sparkles } from 'lucide-react'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -50,6 +50,11 @@ export function Navbar() {
       href: '/interactions',
       label: 'Interactions',
       icon: MessageSquare
+    },
+    {
+      href: '/quest',
+      label: 'AI Quests',
+      icon: Sparkles
     }
   ]
 
