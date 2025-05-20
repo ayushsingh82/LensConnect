@@ -8,29 +8,16 @@ import { ConnectKitProvider, getDefaultConfig } from "connectkit";
 import { JSX } from "react";
 import { createConfig, http, WagmiProvider } from "wagmi";
 import { ThemeProvider } from "next-themes";
+import { config } from '@/lib/wagmi'
 
-const wagmiConfig = createConfig(
-  getDefaultConfig({
-    walletConnectProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "",
-    chains: [chains.mainnet],
-    transports: {
-      [chains.mainnet.id]: http(),
-      [chains.testnet.id]: http(),
-    },
-    appName: "Lens App",
-    appDescription: "Future of decentralized social",
-    appUrl: "https://totally.real.com",
-    appIcon: "https://totally.real.com/logo.png",
-  }),
-);
+const queryClient = new QueryClient()
 
 export const Providers = ({ children }: { children: JSX.Element }) => {
-  const queryClient = new QueryClient();
   const publicClient = getPublicClient();
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <WagmiProvider config={wagmiConfig}>
+      <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>
           <ConnectKitProvider>
             <LensProvider client={publicClient}>{children}</LensProvider>
