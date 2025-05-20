@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lens Connect",
+  title: "Lens-Connect",
   description: "Create and discover events in the Lens Protocol ecosystem",
 };
 

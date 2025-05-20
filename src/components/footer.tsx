@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">Lens Connect</h3>
+            <h3 className="text-xl font-bold text-white">Lens-Connect</h3>
             <p className="text-gray-400 text-sm">
               Create and discover events in the Lens Protocol ecosystem
             </p>
@@ -111,7 +111,7 @@ export function Footer() {
         <div className="border-t border-purple-500/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Lens Connect. All rights reserved.
+              © {new Date().getFullYear()} Lens-Connect. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="/privacy" className="text-gray-400 hover:text-purple-400 text-sm">
