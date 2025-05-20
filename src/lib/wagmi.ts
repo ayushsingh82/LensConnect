@@ -1,9 +1,11 @@
 import { http } from 'wagmi'
-import { polygon } from 'wagmi/chains'
+import { mainnet } from 'wagmi/chains'
+import { createConfig } from 'wagmi'
 
-export const config = {
-  chains: [polygon],
+export const config = createConfig({
+  chains: [mainnet],
   transports: {
-    [polygon.id]: http(),
+    [mainnet.id]: http(),
   },
-} 
+  ssr: true
+}) 
