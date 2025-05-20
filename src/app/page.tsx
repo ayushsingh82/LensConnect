@@ -14,7 +14,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-black to-purple-900 flex flex-col items-center justify-center p-6">
     <div className="text-center mb-12">
       <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-        Welcome to Lens Events
+        Welcome to Lens Connect
       </h1>
       <p className="text-xl text-purple-200 mb-8">
         Create and discover events in the Lens Protocol ecosystem

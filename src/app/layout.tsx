@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lens Events",
+  title: "Lens Connect",
   description: "Create and discover events in the Lens Protocol ecosystem",
 };
 
@@ -27,13 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-b from-black to-purple-900`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-b from-black to-purple-900 flex flex-col`}
       >
         <Providers>
           <Navbar />
-          <main className="container mx-auto px-4 py-8">
+          <main className="flex-1 container mx-auto px-4 py-8">
             {children}
           </main>
+          <Footer />
         </Providers>
       </body>
     </html>
