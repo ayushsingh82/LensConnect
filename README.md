@@ -1,4 +1,4 @@
-# LensConnect - Event Engagement Platform
+# LensConnect -  Making events more fun and more focused with gaming experience
 
 A decentralized platform for event management and engagement built on Lens Protocol, featuring AI-powered quests and XP rewards.
 

@@ -30,18 +30,6 @@ export function Navbar() {
 
   const routes = [
     {
-      href: '/',
-      label: 'Home'
-    },
-    {
-      href: '/events',
-      label: 'Events'
-    },
-    {
-      href: '/create',
-      label: 'Create Event'
-    },
-    {
       href: '/leaderboard',
       label: 'Leaderboard',
       icon: Trophy

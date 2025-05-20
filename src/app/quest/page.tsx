@@ -3,10 +3,16 @@
 import { useEffect, useState } from 'react'
 import { generateQuests, getQuestColor, getDifficultyColor, Quest } from '@/lib/ai'
 import { Trophy, Sparkles } from 'lucide-react'
+import { useAccount } from 'wagmi'
+import { useXPManager } from '@/hooks/useContracts'
 
 export default function QuestPage() {
   const [quests, setQuests] = useState<Quest[]>([])
   const [loading, setLoading] = useState(true)
+  const { address } = useAccount()
+  const { getUserXP, getUserLevel } = useXPManager()
+  const [userXP, setUserXP] = useState<number>(0)
+  const [userLevel, setUserLevel] = useState<number>(0)
 
   useEffect(() => {
     const loadQuests = async () => {
@@ -26,6 +32,23 @@ export default function QuestPage() {
     loadQuests()
   }, [])
 
+  useEffect(() => {
+    const loadUserData = async () => {
+      if (address) {
+        try {
+          const xp = await getUserXP(address)
+          const level = await getUserLevel(address)
+          setUserXP(Number(xp.data))
+          setUserLevel(Number(level.data))
+        } catch (error) {
+          console.error('Failed to load user data:', error)
+        }
+      }
+    }
+
+    loadUserData()
+  }, [address, getUserXP, getUserLevel])
+
   if (loading) {
     return (
       <div className="min-h-screen bg-black text-white p-8">
@@ -43,9 +66,22 @@ export default function QuestPage() {
   return (
     <div className="min-h-screen bg-black text-white p-8">
       <div className="max-w-4xl mx-auto">
-        <div className="flex items-center gap-3 mb-8">
-          <Sparkles className="w-8 h-8 text-purple-400" />
-          <h1 className="text-3xl font-bold text-white">AI-Generated Quests</h1>
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-3">
+            <Sparkles className="w-8 h-8 text-purple-400" />
+            <h1 className="text-3xl font-bold text-white">AI-Generated Quests</h1>
+          </div>
+          {address && (
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 text-yellow-400">
+                <Trophy className="w-5 h-5" />
+                <span className="font-semibold">{userXP} XP</span>
+              </div>
+              <div className="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400">
+                Level {userLevel}
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="grid gap-6">

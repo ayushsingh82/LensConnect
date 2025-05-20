@@ -13,7 +13,7 @@ import Link from "next/link";
 const registeredEvents = [
   {
     id: 1,
-    name: "Lens Protocol Meetup",
+    name: "Lens Protocol Hackathon",
     startDate: "2024-05-16T13:48:00",
     qrCode: "event-1-qr-code",
     participants: [
