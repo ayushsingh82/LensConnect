@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LensConnect - Event Engagement Platform
+
+A decentralized platform for event management and engagement built on Lens Protocol, featuring AI-powered quests and XP rewards.
+
+## Features
+
+### 1. XP Collection System
+- On-chain XP tracking through the XP Manager contract
+- Level progression based on XP accumulation
+- XP rewards for completing quests and participating in events
+- Real-time XP updates and level visualization
+
+### 2. AI-Powered Quest System
+- Dynamic quest generation based on event context
+- Four quest types:
+  - Social: Networking and community building
+  - Content: Creating valuable content
+  - Engagement: Interacting with event content
+  - Community: Organizing and participating in discussions
+- Difficulty levels (Easy, Medium, Hard) with corresponding XP rewards
+- AI-generated quest descriptions and requirements
+
+### 3. On-Chain Integration
+- Smart Contracts:
+  - XP Manager: Handles XP distribution and tracking
+  - Event Registry: Manages event registration and details
+- Lens Protocol Integration:
+  - Profile-based interactions
+  - Content posting and engagement
+  - Social graph integration
+- Lens Network Sepolia Testnet deployment
+
+### 4. Event Management
+- Event creation and registration
+- Participant tracking
+- Event-specific quests and rewards
+- Real-time event status updates
+
+## Technical Flow
+
+1. **User Onboarding**
+   - Connect wallet
+   - Create/Import Lens profile
+   - Initialize XP tracking
+
+2. **Event Participation**
+   - Browse available events
+   - Register for events
+   - View event details and requirements
+
+3. **Quest System**
+   - AI generates quests based on event context
+   - Users view available quests
+   - Complete quests through platform interactions
+   - XP rewards distributed on completion
+
+4. **XP Collection**
+   - XP earned through quest completion
+   - Level progression based on XP thresholds
+   - On-chain XP tracking and verification
+   - Real-time XP and level updates
+
+5. **Content Creation**
+   - Post event-related content
+   - Engage with other participants
+   - Earn XP for valuable contributions
+   - Build reputation through consistent engagement
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository
+2. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Set up environment variables:
+```bash
+cp .env.example .env.local
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Learn More
+## Smart Contracts
 
-To learn more about Next.js, take a look at the following resources:
+### XP Manager
+- `awardXP`: Award XP to users
+- `getUserXP`: Get user's current XP
+- `getUserLevel`: Get user's current level
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Event Registry
+- `registerForEvent`: Register for events
+- `getEventDetails`: Get event information
+- `getUserEvents`: Get user's registered events
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Network Configuration
+- Network: Lens Network Sepolia
+- Chain ID: 37111
+- RPC URL: https://rpc.testnet.lens.dev
+- Explorer: https://explorer.testnet.lens.dev
 
-## Deploy on Vercel
+## Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
